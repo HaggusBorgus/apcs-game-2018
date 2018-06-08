@@ -3,6 +3,13 @@ package render.core;
 import image.Texture;
 import render.math.Vector2;
 
+/**
+ * This represents a Wall as opposed to a Block in the game. In the game, there can be either a 4-sided block or a block that is actually a sector
+ * and has custom Walls defined in it. Each Wall has a texture which can be tiled to fit the Wall a certain way.
+ * Walls are represented not as 3D surfaces, but as 2D lines because this raycaster does everything in 2D.
+ *
+ * @author Joe Desmond
+ */
 public class Wall {
 	public static final Texture DEFAULT_TEXTURE = new Texture("assets/raycast/textures/darkbricks.png",512,512);
 	

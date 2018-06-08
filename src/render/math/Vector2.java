@@ -1,5 +1,10 @@
 package render.math;
 
+/**
+ * Represents a 2D Vector with an x and y coordinate.
+ *
+ * @author Joe Desmond
+ */
 public class Vector2 {
 	public float x;
 	public float y;
@@ -8,10 +13,6 @@ public class Vector2 {
 	public Vector2(float _x, float _y) {
 		x = _x;
 		y = _y;
-	}
-	
-	public Vector2 add(Vector2 v) {
-		return new Vector2(v.x + x, v.y + y);
 	}
 	
 	public void updateLength() {
@@ -31,6 +32,10 @@ public class Vector2 {
 	 */
 	public static float distance(Vector2 _v0, Vector2 _v1) {
 		return (float) Math.sqrt(((_v0.x - _v1.x) * (_v0.x - _v1.x)) + ((_v0.y - _v1.y) * (_v0.y - _v1.y)));
+	}
+	
+	public static Vector2 add(Vector2 v0, Vector2 v1) {
+		return new Vector2(v0.x + v1.x, v0.y + v1.y);
 	}
 	
 	@Override
