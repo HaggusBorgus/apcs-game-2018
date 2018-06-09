@@ -44,4 +44,41 @@ public class RenderUtils {
 		}
 		return null;
 	}
+	
+	/**
+	 * Returns the angle between two Walls, in radians.
+	 * 
+	 * @param wall1 first wall
+	 * @param wall2 second wall
+	 * @return angle in radians
+	 */
+	public static float angleBetweenLines(Wall wall1, Wall wall2) {
+		float angle1 = (float) Math.atan2(wall1.v0.y - wall1.v1.y, wall1.v0.x - wall1.v1.x);
+		float angle2 = (float) Math.atan2(wall2.v0.y - wall2.v1.y, wall2.v0.x - wall2.v1.x);
+		  
+		return Math.abs(angle1-angle2);
+	}
+	
+	public static int darkenWithThreshold(int color, float normValue, int threshold) {
+		int darkenBy = (int)(normValue * threshold);
+		int red = (color >> 16) & 0xFF;
+		int green = (color >> 8) & 0xFF;
+		int blue = color & 0xFF;
+		
+		red -= (red - darkenBy >= 0) ? darkenBy : red;
+		green -= (green - darkenBy >= 0) ? darkenBy : green;
+		blue -= (blue - darkenBy >= 0) ? darkenBy : blue;
+		
+		return (red << 16) | (green << 8) | blue;
+	}
+	
+	public static double clamp(float val, float minVal, float maxVal) {
+		if (val < minVal) {
+			return minVal;
+		}
+		if (val > maxVal) {
+			return maxVal;
+		}
+		return val;
+	}
 }
