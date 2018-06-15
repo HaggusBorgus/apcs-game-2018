@@ -1,0 +1,19 @@
+Message Loop information
+
+The Message Loop is a data structure meant for storing various occurences such as the player bumping into something or a game event
+such as pausing or the game ending.
+
+Format: "<typeName>:<specification>"
+
+TypeNames:
+
+interaction: for when the player bumps into something
+specification examples: coworker, coffeebean
+
+event: for special game events
+specification examples: pause, win, lose
+
+complete examples:
+
+"interaction:coworker"
+"event:pause"
